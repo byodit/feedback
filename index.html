@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Formular</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYOD Feedback</title>
 
     <style>
         html, body {
@@ -21,7 +21,7 @@
             position: fixed;
             top: 15px;
             left: 20px;
-            z-index: 10000;
+            z-index: 10001;
 
             font-size: 16px;
             font-weight: bold;
@@ -40,36 +40,43 @@
             width: 100%;
             height: 100%;
             background: #ffffff;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+
+            z-index: 10000;
         }
 
         #loader h1 {
             margin-bottom: 10px;
             color: #333;
+            font-size: 32px;
         }
 
         #loader p {
             margin-bottom: 25px;
             color: #666;
+            font-size: 18px;
         }
 
         /* Ladebalken */
         .progress-container {
-            width: 300px;
-            height: 20px;
+            width: 320px;
+            height: 22px;
+
             background: #ddd;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
         }
 
         .progress-bar {
             height: 100%;
             width: 0%;
+
             background: #0078d4;
+
             animation: loading 5s linear forwards;
         }
 
@@ -77,15 +84,18 @@
             from {
                 width: 0%;
             }
+
             to {
                 width: 100%;
             }
         }
 
+        /* Formular */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+
             display: none;
         }
     </style>
@@ -100,22 +110,22 @@
     <!-- Ladeanzeige -->
     <div id="loader">
         <h1>Formular wird geladen</h1>
-        <p>Bitte warten...</p>
+        <p>Bitte warten Sie einen Moment...</p>
 
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
     </div>
 
-    <!-- Formular -->
-    <iframe 
+    <!-- Microsoft Formular -->
+    <iframe
         id="formFrame"
         src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__pkTbAxUODc4MkY4WkdPRTUyTU03MFVNTk1RTkRDTC4u"
         allowfullscreen>
     </iframe>
 
     <script>
-        // Nach 5 Sekunden Formular anzeigen
+        // Formular nach 5 Sekunden anzeigen
         setTimeout(() => {
             document.getElementById("loader").style.display = "none";
             document.getElementById("formFrame").style.display = "block";
